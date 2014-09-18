@@ -14,7 +14,7 @@ all: void-mklive/mklive.sh
 	sudo rm -f void-mklive/*.iso
 	cd void-mklive ; sudo linux32 ./mklive.sh \
 		-C "nomodeset live.user=$(USERNAME)" \
-		-T "$(TITLE)" \
+		-T $(TITLE) \
 		-k $(KEYMAP) \
 		-l $(LOCALE) \
 		-p $(PACKAGES)
