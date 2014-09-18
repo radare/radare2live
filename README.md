@@ -1,7 +1,9 @@
-radare2iso
-==========
+Radare2 Live
+============
 
-How to create the ISO file from voidlinux:
+This repository contains all the necessary stuff to construct a livecd image using the Void linux distribution.
+
+To create a [voidlinux](http://voidlinux.eu) live image with r2:
 
 	$ make
 
@@ -18,7 +20,7 @@ TODO
 ----
 
 * include radare2-git package
-* change default user name
 * do not use vga mode? 80x25 ftw
-* shrink filesystem contents
 * append timestamp to r2live iso filename?
+* shrink filesystem contents
+  - create new base pkg (base-system-r2) without the firmware files
