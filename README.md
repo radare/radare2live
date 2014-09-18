@@ -20,7 +20,5 @@ TODO
 ----
 
 * include radare2-git package
-* do not use vga mode? 80x25 ftw
-* append timestamp to r2live iso filename?
 * shrink filesystem contents
   - create new base pkg (base-system-r2) without the firmware files

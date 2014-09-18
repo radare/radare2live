@@ -2,7 +2,7 @@ PACKAGES=radare2
 USERNAME=r2
 KEYMAP=en
 LOCALE=en_US.UTF-8
-TITLE="radare2 live - Void GNU/Linux @@KERNVER@@ (@@ARCH@@)"
+TITLE="radare2 live - Void GNU/Linux i686"
 TODAY=$(shell date +%Y%m%d)
 
 MKLIVETIP=620883f9b252645524d93f414a82c2a662091de7
