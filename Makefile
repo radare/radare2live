@@ -1,5 +1,7 @@
 PACKAGES=radare2-git
 USERNAME=r2
+BASESYSTEM=base-system-busybox
+BASESYSTEM=base-system
 KEYMAP=en
 LOCALE=en_US.UTF-8
 TITLE="radare2 live - Void GNU/Linux"
@@ -14,7 +16,8 @@ all: void-mklive/mklive.sh
 	cp -f splash.png void-mklive/data/splash.png
 	sudo rm -f void-mklive/*.iso
 	cd void-mklive ; sudo linux32 ./mklive.sh \
-		-C "nomodeset live.user=$(USERNAME)" \
+		-C "nomodeset verbose live.user=$(USERNAME)" \
+		-b $(BASESYSTEM) \
 		-T $(TITLE) \
 		-k $(KEYMAP) \
 		-l $(LOCALE) \
