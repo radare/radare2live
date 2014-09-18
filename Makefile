@@ -1,4 +1,4 @@
-PACKAGES=radare2
+PACKAGES=radare2-git
 USERNAME=r2
 KEYMAP=en
 LOCALE=en_US.UTF-8
