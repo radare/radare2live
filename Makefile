@@ -1,6 +1,7 @@
 PACKAGES=radare2-git
 USERNAME=r2
-BASESYSTEM=base-system-busybox
+#BASESYSTEM=base-system-systemd (190MB)
+#BASESYSTEM=base-system-busybox (50MB - crash )
 BASESYSTEM=base-system
 KEYMAP=en
 LOCALE=en_US.UTF-8

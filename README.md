@@ -27,6 +27,7 @@ Flash in a pendrive, CD-ROM or boot it like this:
 TODO
 ----
 
+* Enlarge rootfs
 * shrink filesystem contents
   - create new base pkg (base-system-r2) without the firmware files
   - use busybox base-system
