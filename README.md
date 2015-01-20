@@ -28,6 +28,14 @@ TODO
 ----
 
 * Enlarge rootfs
+  $ dd if=/dev/zero of="$BUILDDIR/tmp/LiveOS/ext3fs.img" \
+       bs="$((${ROOTFS_SIZE}+($ROOTFS_SIZE/6)))K" count=1 >>$LOGFILE 2>&1
+
 * shrink filesystem contents
+  - use busybox-musl
   - create new base pkg (base-system-r2) without the firmware files
   - use busybox base-system
+
+* autologin
+  - create a script named "autologin" with "login -f user" in /etc/sv/agetty-*/run
+
