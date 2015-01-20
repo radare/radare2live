@@ -1,0 +1,10 @@
+--------------------------------------------------------
+
+Login     root/voidlinux
+Update    xbps-install -Syu 
+Install   sudo void-installer
+Network   ip a ; dhcpcd ens3
+Keyboard  loadkeys es
+Packages  gcc gdb binutils radare2-git
+
+--------------------------------------------------------
