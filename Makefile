@@ -1,9 +1,12 @@
+LOCAL_PACKAGES=lzo-32bit squashfs-tools xz
+
 PACKAGES=radare2
 #PACKAGES=radare2-git binutils gcc gdb
 #PACKAGES=radare2-git 
 # vim
 PACKAGES=gdb strace ltrace binutils gcc git
 PACKAGES+=radare2
+#PACKAGES+=radare2-git
 #PACKAGES+=obconf openbox xorg-minimal xf86-video-vesa xterm 
 #PACKAGES+=xf86-video-modesetting
 
@@ -29,9 +32,10 @@ TODAY=$(shell date +%Y%m%d)
 ARCH=linux32
 
 # known to work on this commit
-MKLIVETIP=8c91dea923aa2d5909771dfacb51168b7294f4ad
+MKLIVETIP=851c861cfd046e354cfd9ce8ce4b92fdfb4dc323
 
 all: void-mklive/mklive.sh
+	-sudo xbps-install -Sy ${LOCAL_PACKAGES}
 	cd void-mklive ; git pull
 	cp -f motd void-mklive/data/motd
 	cp -f issue void-mklive/data/issue
