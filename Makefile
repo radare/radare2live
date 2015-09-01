@@ -17,7 +17,7 @@ USERSHELL=/bin/r2sh
 USERSHELL=/bin/bash
 #BASESYSTEM=base-system-systemd (190MB)
 #BASESYSTEM=base-system-systemd
-#BASESYSTEM=base-system
+BASESYSTEM=base-system
 
 KEYMAP=us
 LOCALE=en_US.UTF-8
@@ -35,10 +35,11 @@ ARCH=linux32
 
 # known to work on this commit
 MKLIVETIP=851c861cfd046e354cfd9ce8ce4b92fdfb4dc323
-LOCALREPO=$(shell pwd)/xbps-packages/hostdir/binpkgs/${HOME}/prg/xbps-packages/
+LOCALREPO=$(shell pwd)/xbps-packages/hostdir/binpkgs/
+#${HOME}/prg/xbps-packages/
 R2PKG=$(LOCALREPO)/radare2-git-20150831_1.i686.xbps
 
-SETTINGS="nomodeset verbose live.user=$(USERNAME) live.shell=$(USERSHELL)"
+SETTINGS=nomodeset verbose vga=0 live.user=$(USERNAME) live.shell=$(USERSHELL)
 
 all: void-mklive/mklive.sh
 	[ -n "`${ARCH} xbps-query --repository=$(LOCALREPO) radare2-git`" ] || ${MAKE} pkg
@@ -50,25 +51,16 @@ all: void-mklive/mklive.sh
 	#cp -f splash-securizame.png void-mklive/data/splash.png
 	#cp -f splash-void.png void-mklive/data/splash.png
 	sudo rm -f void-mklive/*.iso
-	echo ./mklive.sh -a i686 \
-		-C "${SETTINGS}" \
-		-r "$(LOCALREPO)" \
-		-S $(RAMFS_SIZE) \
-		-b $(BASESYSTEM)
-		-T $(TITLE) \
-		-k $(KEYMAP) \
-		-l $(LOCALE) \
-		-p "$(PACKAGES)"
 	-cd void-mklive ; sudo ${ARCH} \
 	./mklive.sh -a i686 \
-		-C "${SETTINGS}" \
-		-r "$(LOCALREPO)" \
+		-r http://repo.voidlinux.eu/current \
+		-p '$(PACKAGES)' \
+		-r '$(LOCALREPO)' \
 		-S $(RAMFS_SIZE) \
-		-b $(BASESYSTEM)
+		-b $(BASESYSTEM) \
 		-T $(TITLE) \
 		-k $(KEYMAP) \
-		-l $(LOCALE) \
-		-p "$(PACKAGES)"
+		-l $(LOCALE)
 	mv -f void-mklive/*.iso r2live-${TODAY}.iso
 	ln -fs r2live-${TODAY}.iso r2live.iso
 
