@@ -19,6 +19,9 @@ Flash in a pendrive, CD-ROM or boot it like this:
 
 	$ qemu-system-x86_64 -cdrom r2live.iso
 
+For KVM:
+
+	$ sudo qemu-system-i386 -enable-kvm -cdrom r2live.iso 
 
 ![img](img/r2live.png)
 
