@@ -50,6 +50,15 @@ all: void-mklive/mklive.sh
 	#cp -f splash-securizame.png void-mklive/data/splash.png
 	#cp -f splash-void.png void-mklive/data/splash.png
 	sudo rm -f void-mklive/*.iso
+	echo ./mklive.sh -a i686 \
+		-C "${SETTINGS}" \
+		-r "$(LOCALREPO)" \
+		-S $(RAMFS_SIZE) \
+		-b $(BASESYSTEM)
+		-T $(TITLE) \
+		-k $(KEYMAP) \
+		-l $(LOCALE) \
+		-p "$(PACKAGES)"
 	-cd void-mklive ; sudo ${ARCH} \
 	./mklive.sh -a i686 \
 		-C "${SETTINGS}" \
