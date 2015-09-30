@@ -18,5 +18,5 @@ do_fetch() {
         msg_normal "Fetching source from $url ...\n"
         git clone ${url} ${pkgname}-${version}
 	cd ${pkgname}-${version}
-	git checkout b1e267dd7a5169968fbf6746fa8bdff034d53fc9
+	git checkout fb04e33acc3eca8bc1f18d515a796649456ddccf
 }

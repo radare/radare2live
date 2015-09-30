@@ -39,7 +39,8 @@ LOCALREPO=$(shell pwd)/xbps-packages/hostdir/binpkgs/
 #${HOME}/prg/xbps-packages/
 R2PKG=$(LOCALREPO)/radare2-git-20150831_1.i686.xbps
 
-SETTINGS=nomodeset verbose vga=0 live.user=$(USERNAME) live.shell=$(USERSHELL)
+SETTINGS=nomodeset verbose vga=0 
+#live.user=$(USERNAME) live.shell=$(USERSHELL)
 
 all: void-mklive/mklive.sh
 	[ -n "`${ARCH} xbps-query --repository=$(LOCALREPO) radare2-git`" ] || ${MAKE} pkg
